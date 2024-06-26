@@ -200,8 +200,19 @@ Solution is in:
 
 4. Given the tables from the first exercise (Payments, Contracts, and User), define the endpoints (API URLs and protocol) that should be created for:
 
-* Create a user
+4. Solution:
+
+* Create a user:
++ url= /api/v1/users/, protocol= http(s), verb=POST
+
 * Modify a user
++ url=/api/users/<user_id>/, protocol= http(s), verb=PUT
+
 * List users
++ url=/api/users/, protocol=http(s), verb=GET
+
 * List a user's contracts
++ url=/api/users/<user_id>/contracts/, protocol=http(s), verb=GET
+
 * Validate a payment
++ url=/api/payments/validate/, protocol=http(s), verb=POST
