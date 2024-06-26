@@ -134,10 +134,47 @@ Id: Integer
 contract_id: Integer
 ```
 
-
 Using Django's ORM, retrieve contracts with a start_date in the year 2020 that are not in the recurrent_contracts table and have a "name" field containing the text "Jho".
 
+2. Solution
+
+Solution is in [tests.py](django_app/core/tests.py#L33) file
+
+To execute the query:
+
+* change to directory
+
+```
+cd django_app
+```
+
+```
+python3 -m venv myenv
+source myenv/bin/activate
+```
+
+* Install requirements
+
+```
+pip install -r requirements.txt
+```
+
+* Migrate db
+
+```
+./manage.py migrate
+```
+
+* Run test to execute the query
+
+```
+./manage.py test
+```
+
+
 3.  Considering the information from the previous exercise, if the database contained millions of records in all tables, what technological resources would you use to optimize data retrieval time? You do not need to implement, just describe in your own words.
+
+
 
 4. Given the tables from the first exercise (Payments, Contracts, and User), define the endpoints (API URLs and protocol) that should be created for:
 
