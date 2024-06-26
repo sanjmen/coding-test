@@ -42,3 +42,15 @@ class ContractsTestCase(TestCase):
             id__in=RecurrentContract.objects.values_list("contract_id", flat=True)
         )
         self.assertEqual(contracts.count(), 1)
+
+    def test_query_optimized(self):
+        contracts = (
+            Contract.objects.filter(start_date__year=2020)
+            .only("id", "start_date")
+            .select_related("user")
+            .filter(user__name__icontains="Jho")
+            .exclude(
+                id__in=RecurrentContract.objects.values_list("contract_id", flat=True)
+            )
+        )
+        self.assertEqual(contracts.count(), 1)

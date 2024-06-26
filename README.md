@@ -174,6 +174,28 @@ pip install -r requirements.txt
 
 3.  Considering the information from the previous exercise, if the database contained millions of records in all tables, what technological resources would you use to optimize data retrieval time? You do not need to implement, just describe in your own words.
 
+3. Solution
+In order to optimize data retrieval time first we need to analyze queries. We can do that with django-debug-toolbar library.
+
+In this especific case we can:
+
+* Create Indexes (in models): 
+    - create an index for "start_date" Contract field
+    - create an index for "name" Users field
+
+* Optimize Queries:
+    - we can rewrite the query using ".select_related('user')"
+    - Using "only" we can specify which fields to retrieve in order to avoid fetching unnecessary data
+
+* Use Cache:
+    - If this is a frequently used (or complex) query we can implement caching mechanisms to store the results of this queries
+
+* Database Partitioning:
+    - If our database size gets bigger we can split the data across multiple databases based on a specific key (like "year" in our case).
+
+Solution is in:
+* [tests.py](django_app/core/tests.py#L46) file
+* [models.py](django_app/core/models.py#L12) file
 
 
 4. Given the tables from the first exercise (Payments, Contracts, and User), define the endpoints (API URLs and protocol) that should be created for:

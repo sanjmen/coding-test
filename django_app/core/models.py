@@ -4,12 +4,12 @@ from django.db import models
 class User(models.Model):
     date_joined = models.DateTimeField(null=False)
     username = models.CharField(max_length=255, null=False)
-    name = models.CharField(max_length=255, null=True)
+    name = models.CharField(max_length=255, null=True, db_index=True)
     first_name = models.CharField(max_length=255, null=True)
 
 
 class Contract(models.Model):
-    start_date = models.DateTimeField(null=False)
+    start_date = models.DateTimeField(null=False, db_index=True)
     product_id = models.IntegerField(null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
