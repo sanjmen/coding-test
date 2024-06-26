@@ -1,8 +1,6 @@
-# coding-test
+# Technical Backend Developer Test
 
-## Technical Backend Developer Test
-
-1. Problem: Given the following SQL tables
+## 1. Problem: Given the following SQL tables
 
 payments_table
 ```
@@ -31,7 +29,7 @@ username: Varchar
 
 Retrieve all users with date_joined of today, the number of contracts each user has, and the number of contracted cases (a case is contracted if it has at least one payment) using SQL Language.
 
-1. Solution:
+### 1. Solution:
 
 The relationship between contracts and users is missing. This relationship is necessary to execute the query.
 Assuming that the relationship is expressed as in the table below:
@@ -109,7 +107,7 @@ INFO:__main__:Row 1: user_id=10, username=user10, total_contracts=1, contracted_
 ```
 
 
-2. Given the following tables, assuming that Django models that reflect this information have already been created.
+## 2. Given the following tables, assuming that Django models that reflect this information have already been created.
 
 user_table
 ```
@@ -136,7 +134,7 @@ contract_id: Integer
 
 Using Django's ORM, retrieve contracts with a start_date in the year 2020 that are not in the recurrent_contracts table and have a "name" field containing the text "Jho".
 
-2. Solution
+### 2. Solution
 
 Solution is in [tests.py](django_app/core/tests.py#L33) file
 
@@ -172,9 +170,9 @@ pip install -r requirements.txt
 ```
 
 
-3.  Considering the information from the previous exercise, if the database contained millions of records in all tables, what technological resources would you use to optimize data retrieval time? You do not need to implement, just describe in your own words.
+## 3.  Considering the information from the previous exercise, if the database contained millions of records in all tables, what technological resources would you use to optimize data retrieval time? You do not need to implement, just describe in your own words.
 
-3. Solution
+### 3. Solution
 In order to optimize data retrieval time first we need to analyze queries. We can do that with django-debug-toolbar library.
 
 In this especific case we can:
@@ -198,9 +196,9 @@ Solution is in:
 * [models.py](django_app/core/models.py#L12) file
 
 
-4. Given the tables from the first exercise (Payments, Contracts, and User), define the endpoints (API URLs and protocol) that should be created for:
+## 4. Given the tables from the first exercise (Payments, Contracts, and User), define the endpoints (API URLs and protocol) that should be created for:
 
-4. Solution:
+### 4. Solution:
 
 * Create a user:
 + url= /api/v1/users/, protocol= http(s), verb=POST
